@@ -6,9 +6,7 @@ name: CI
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches: [master]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -19,23 +17,23 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v1.4.2
-      with:
-        version: 12
-      
-    - name: Install npm
-      run: npm install
-      
-    - name: creating Build
-      run: npm run build
+      # Runs a single command using the runners shell
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v1.4.2
+        with:
+          version: 12
 
-    - name: installing surge
-      run: npm install -g surge 
-         
-    - name: Deploying on serge
-      run: surge ./build http://expensetrackertask.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
+      - name: Install npm
+        run: npm install
+
+      - name: creating Build
+        run: npm run build
+
+      - name: installing surge
+        run: npm install -g surge
+
+      - name: Deploying on serge
+        run: surge ./build http://expensetrackertask.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
