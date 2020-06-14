@@ -12,9 +12,7 @@ export const Appreducer = (state, { type, payload }) => {
         ...state,
         transactions: [payload, ...state.transactions],
       };
-
     default:
       return state;
-      break;
   }
 };

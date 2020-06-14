@@ -7,7 +7,7 @@ export const Transaction = ({ transactions }) => {
   return (
     <div>
       <ul id="list" className="list">
-        <li class={`cashLeft ${sign == "+" ? "plus" : "minus"}`}>
+        <li class={`cashLeft ${sign === "+" ? "plus" : "minus"}`}>
           {transactions.text}
           <span>
             {sign}${Math.abs(transactions.amount)}
