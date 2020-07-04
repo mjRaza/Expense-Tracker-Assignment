@@ -12,7 +12,7 @@ const Home = () => {
           justifyContent: "center",
         }}
       >
-        <h2>Expense Tracker</h2>
+        <h2>Expense Tracker </h2>
       </div>
       <Balance />
       <Income />
